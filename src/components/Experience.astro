@@ -1,0 +1,18 @@
+---
+import Project from '../components/Project.astro'
+import { projects } from '../data/projects.js'
+---
+
+<ol class='relative border-s border-gray-200 dark:border-gray-700'>
+  {
+    projects.map((project) => (
+      <Project
+        title={project.title}
+        subtitle={project.subtitle}
+        date={project.date}
+        description={project.description}
+        technologies={project.technologies}
+      />
+    ))
+  }
+</ol>
