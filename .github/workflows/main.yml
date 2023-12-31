@@ -62,7 +62,6 @@ jobs:
               uses: actions/upload-pages-artifact@v3
               with:
                 path: ${{ env.BUILD_PATH }}/dist
-      		  
       		  - uses: actions/checkout@v4
             # Here is the deployment action
             - name: Upload from public_html via FTP
