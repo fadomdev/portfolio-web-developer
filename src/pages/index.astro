@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import Social from '../components/Social.astro'
+import Header from '../components/Header.astro'
+import Skills from '../components/Skills.astro'
+import Experience from '../components/Experience.astro'
+import Contact from '../components/Contact.astro'
+---
+
+<Layout title='Francisco Aquino Domínguez'>
+  <Header />
+  <main class='flex flex-col w-4/6 max-w-3xl mx-auto'>
+    <div
+      class='flex h-28 py-4 my-4 text-slate-100 border border-slate-300 dark:border-slate-800 dark:bg-slate-900 p-3 rounded-md'
+    >
+      <picture
+        class='flex h-20 w-20 rounded-full overflow-hidden border-2 border-slate-50'
+      >
+        <source srcset='/assets/profile2.jpeg' type='image/svg+xml' />
+        <img
+          src='/assets/profile2.jpeg'
+          alt='Astro Logo'
+          class='object-cover'
+        />
+      </picture>
+      <div class='flex flex-col justify-between ml-4'>
+        <h2 class='text-slate-900 dark:text-white font-semibold'>
+          Francisco Aquino D.
+        </h2>
+        <span class='text-slate-900 dark:text-gray-500'>@fadomdev</span>
+
+        <!-- Social Networks -->
+        <Social />
+      </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class='flex flex-col my-4'>
+      <h3 class='dark:text-white font-semibold mb-2'>Información Pesonal</h3>
+      <div class='flex flex-col'>
+        <div class='mb-2'>
+          <h4 class='dark:text-slate-300 font-semibold'>Email</h4>
+          <span class='dark:text-slate-400'>
+            <a href='mailto:franciscoaquino19@gmail.com'
+              >franciscoaquino19@gmail.com</a
+            >
+          </span>
+        </div>
+        <div class='mb-2'>
+          <h4 class='dark:text-slate-300 font-semibold'>Teléfono</h4>
+          <span class='dark:text-slate-400'
+            ><a href='tel:+56 9 90479050'>+56 9 90479050</a></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Yo -->
+    <div class='flex flex-col my-4'>
+      <h3 class='dark:text-white font-semibold mb-2'>Frontend Developer</h3>
+      <div class='flex flex-col'>
+        <p class='dark:text-slate-400'>
+          Profesional con una sólida trayectoria de varios años en el desarrollo
+          de proyectos, desde su concepción hasta su implementación. He
+          participado en diversos sectores, contribuyendo al éxito de proyectos
+          que abarcan desde sitios web y sistemas ERP hasta aplicaciones móviles
+          y administradores de contenido.
+        </p>
+      </div>
+    </div>
+
+    <!-- list skills developers -->
+    <div class='my-4'>
+      <Skills />
+    </div>
+
+    <!-- Proyectos -->
+    <div class='flex flex-col mt-4'>
+      <h3 class='dark:text-white font-semibold text-md mb-4'>Proyectos</h3>
+      <Experience />
+    </div>
+
+    <div class='flex flex-col mt-10'>
+      <Contact />
+    </div>
+  </main>
+  <footer class='mt-8'>
+    <div
+      class='flex flex-col items-center justify-center w-full h-24 border-t border-slate-900'
+    >
+      <span class='text-sm text-gray-500'>
+        Made with
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='inline-block w-4 h-4 mx-1 text-red-500 fill-current'
+          viewBox='0 0 24 24'
+        >
+          <path
+            d='M12 21.35l-10.94-6.3c-1.1-.64-1.1-2.26 0-2.89l10.94-6.3c1.2-.69 2.7.09 2.7 1.45v12.6c0 1.36-1.5 2.14-2.7 1.45z'
+          ></path>
+        </svg>
+         by
+        <a
+          href='https://twitter.com/fadevdev'
+          class='font-bold no-underline text-gray-500 hover:text-gray-400'
+          >@fadomdev</a
+        >
+      </span>
+    </div>
+  </footer>
+</Layout>
+
+<style></style>

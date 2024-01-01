@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<div class='skill border rounded border-slate-800 py-1 px-2'>
+  <span
+    class='flex items-center text-slate-800 dark:text-slate-300 font-semibold'
+  >
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      class='icon icon-tabler icon-tabler-code'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      stroke-width='1'
+      stroke='currentColor'
+      fill='none'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path
+        d='M7 8l-4 4l4 4'></path><path d='M17 8l4 4l-4 4'></path><path
+        d='M14 4l-4 16'></path></svg
+    >
+     &nbsp;<span> {title}</span>
+  </span>
+</div>
