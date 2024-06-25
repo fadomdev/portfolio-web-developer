@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "HTML5",
+      "level": 4
+    },
+    {
+      "id": 2,
+      "name": "CSS3",
+      "level": 4
+    },
+    {
+      "id": 3,
+      "name": "JavaScript",
+      "level": 4
+    },
+    {
+      "id": 4,
+      "name": "React",
+      "level": 4
+    },
+    {
+      "id": 5,
+      "name": "Node.js",
+      "level": 3
+    },
+    {
+      "id": 6,
+      "name": "Express.js",
+      "level": 3
+    },
+    {
+      "id": 7,
+      "name": "MongoDB",
+      "level": 3
+    },
+    {
+      "id": 8,
+      "name": "Python",
+      "level": 5
+    },
+    {
+      "id": 9,
+      "name": "Django",
+      "level": 3
+    },
+    {
+      "id": 10,
+      "name": "Java",
+      "level": 4
+    },
+    {
+      "id": 11,
+      "name": "jQuery",
+      "level": 4
+    }
+  ]
+}

@@ -33,3 +33,54 @@ export const projects = [
     date: 'Enero 2014 - Diciembre 2015'
   }
 ]
+
+export const websites = [
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  },
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  },
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  },
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  },
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  },
+  {
+    title: 'Apsudamerica',
+    url: 'https://apsudamerica.com',
+    poster: '/public/storage/websites/apsudamerica.jpg',
+    subtitle: 'Air Products Landing',
+    description:
+      'Desarrollar y mantener el sitio web de la empresa. Administrar y mejorar el sistema continuamente.'
+  }
+]
