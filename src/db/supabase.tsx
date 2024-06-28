@@ -1,7 +1,13 @@
-import { createClient } from '@supabase/supabase-js'
+export const prerender = true
 
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
-const supabaseKey = import.meta.env.PUBLIC_SUPABASE_KEY
+import { createClient } from '@supabase/supabase-js'
+import { SUPABASE_URL, SUPABASE_KEY } from 'astro:env/server'
+
+//const supabaseUrl = import.meta.env.SUPABASE_URL
+//const supabaseKey = import.meta.env.SUPABASE_KEY
+
+const supabaseUrl = SUPABASE_URL
+const supabaseKey = SUPABASE_KEY
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 

@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 
@@ -9,5 +9,21 @@ import vercelServerless from '@astrojs/vercel/serverless'
 export default defineConfig({
   output: 'server',
   integrations: [tailwind(), react()],
-  adapter: vercelServerless()
+  adapter: vercelServerless(),
+  experimental: {
+    env: {
+      schema: {
+        SUPABASE_URL: envField.string({
+          context: 'server',
+          access: 'public',
+          default: ''
+        }),
+        SUPABASE_KEY: envField.string({
+          context: 'server',
+          access: 'public',
+          default: ''
+        })
+      }
+    }
+  }
 })
