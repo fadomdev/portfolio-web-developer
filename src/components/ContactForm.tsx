@@ -1,4 +1,3 @@
-import React from 'react'
 import { createContact, getAllContacts } from '../lib/contact'
 import { type Contact } from '../types/types'
 
