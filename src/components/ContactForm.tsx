@@ -8,14 +8,11 @@ import 'react-toastify/dist/ReactToastify.css'
 export default function ContactForm() {
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [isInitialMount, setIsInitialMount] = useState(true)
-  //const isInitialMount = useRef(true)
 
   useEffect(() => {
-    console.log('useEffect: ', isInitialMount)
     if (isInitialMount) {
       setIsInitialMount(false)
     } else {
-      console.log('formState:', formState)
       dispatch({
         type: ActionType.VALIDATE_FIELD
       })
@@ -58,7 +55,6 @@ export default function ContactForm() {
       })
     })
       .then((res) => {
-        console.log('json response:')
         return res.json()
       })
       .then((data) => {
@@ -90,7 +86,7 @@ export default function ContactForm() {
     dispatch({
       type: ActionType.UPDATE_FIELD,
       field: name,
-      value: value
+      value: value.trimStart()
     })
   }
 

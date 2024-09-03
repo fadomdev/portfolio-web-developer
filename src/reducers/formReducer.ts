@@ -40,15 +40,11 @@ const formReducer = (
       }
     case ActionType.VALIDATE_FIELD:
       if (!action.field) {
-        console.log('Validando todos los campos')
         const newValidationErrors: {
           [key: string]: string
         } = {}
 
         for (const key in state.fields) {
-          console.log('key:', key)
-          console.log('value:', state.fields[key])
-
           newValidationErrors[key] = validateField(key, state.fields[key])
         }
 

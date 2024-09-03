@@ -1,5 +1,5 @@
-import { supabase } from '../../lib/supabase'
-import { type APIRoute } from 'astro'
+import { db, Contact, isDbError } from 'astro:db'
+import type { APIRoute } from 'astro'
 import { z } from 'zod'
 
 const invalid_type_error = 'Tipo no válido proporcionado para este campo.'
@@ -18,41 +18,17 @@ export const POST: APIRoute = async ({ request }) => {
   const contact = await request.json()
 
   try {
-    const res = ContactSchema.parse(contact)
-    const { data, error } = await supabase
-      .from('contacts')
-      .insert([res])
-      .select()
+    ContactSchema.parse(contact)
 
-    if (error) {
-      return new Response(
-        JSON.stringify({
-          error: error,
-          data: res
-        }),
-        { status: 500 }
-      )
+    await db.insert(Contact).values(contact)
+  } catch (e) {
+    if (isDbError(e)) {
+      return new Response(`Cannot insert contact \n\n${e.message}`, {
+        status: 400
+      })
     }
-
-    return new Response(
-      JSON.stringify({
-        data: res
-      }),
-      { status: 201 }
-    )
-  } catch (error) {
-    console.log(error.issues)
-    return new Response(
-      JSON.stringify({
-        error: error.issues,
-        data: contact
-      }),
-      { status: 400 }
-    )
+    return new Response('An unexpected error occurred', { status: 500 })
   }
-}
 
-export const GET: APIRoute = async () => {
-  const data = await supabase.from('contacts').select('*')
-  return new Response(JSON.stringify(data))
+  return new Response(JSON.stringify(contact))
 }
