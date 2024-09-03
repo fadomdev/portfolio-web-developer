@@ -1,0 +1,56 @@
+---
+import projects from '../data/projects.json'
+import { BiLinkExternal } from 'react-icons/bi'
+import LinkButton from '../components/ui/LinkButton'
+import Skill from './Skill.astro'
+---
+
+<div>
+  <h2 class='text-4xl text-stone-600 dark:text-stone-300 font-light mb-10'>
+    Proyectos
+  </h2>
+  <div class='mb-6 lg:mb-16'>
+    {
+      projects.data.map((project) => (
+        <article class='flex flex-col md:flex-row gap-5 text-black rounded-lg'>
+          <a
+            href={project.url}
+            class='hover:scale-110 block transition md:basis-2/4'
+            target='_blank'
+          >
+            <img
+              class='rounded-lg overflow-hidden object-cover aspect-video '
+              src={project.image}
+              alt='Captura de pantalla del proyecto ¿Qué es React? Desde cero'
+            />
+          </a>
+          <div class='md:basis-2/4'>
+            <h2 class='text-2xl font-normal tracking-tight text-zinc-900 dark:text-zinc-200'>
+              <a
+                href={project.url}
+                target='_blank'
+                class='hover:text-zinc-500 transition'
+              >
+                {project.title}
+              </a>
+            </h2>
+            <p class='mt-3 mb-4 font-light text-zinc-800 dark:text-zinc-300'>
+              {project.description}
+            </p>
+            <ul class='inline-flex flex-wrap gap-2'>
+              {project.skills.map((skill) => (
+                <Skill title={skill} />
+              ))}
+            </ul>
+            <ul class='flex flex-wrap gap-2 mt-4'>
+              <LinkButton href={project.url} target='_blank'>
+                <BiLinkExternal size={24} className='inline' />
+                Visitar
+              </LinkButton>
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</div>

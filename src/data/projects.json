@@ -1,0 +1,17 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Apsudamerica.cl",
+            "description": "Landing page for a company that provides services for the development of web applications.",
+            "image": "./images/projects/apsudamerica_app.jpg",
+            "url": "https://apsudamerica.com",
+            "skills": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "React"
+            ]
+        }
+    ]
+}

@@ -9,21 +9,5 @@ import vercelServerless from '@astrojs/vercel/serverless'
 export default defineConfig({
   output: 'server',
   integrations: [tailwind(), react()],
-  adapter: vercelServerless(),
-  experimental: {
-    env: {
-      schema: {
-        SUPABASE_URL: envField.string({
-          context: 'server',
-          access: 'public',
-          default: ''
-        }),
-        SUPABASE_KEY: envField.string({
-          context: 'server',
-          access: 'public',
-          default: ''
-        })
-      }
-    }
-  }
+  adapter: vercelServerless()
 })

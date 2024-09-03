@@ -1,16 +1,21 @@
 import React from 'react'
 
-export default function LevelSkill({ level }) {
+// Define the interface for the LevelSkill component
+interface LevelSkillProps {
+  level: number | undefined
+}
+
+export default function LevelSkill({ level }: LevelSkillProps) {
   const maxLevel = 5
   const arrayLevel = Array(maxLevel).fill(0)
 
   return (
     <div className=''>
       <div className='flex'>
-        {arrayLevel.fill(1, 0, level).map((item) => {
+        {arrayLevel.fill(1, 0, level).map((item, index) => {
           return item == 1 ? (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
+              key={index}
               width='24'
               height='24'
               viewBox='0 0 24 24'
@@ -22,15 +27,12 @@ export default function LevelSkill({ level }) {
             </svg>
           ) : (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
+              key={index}
               width='24'
               height='24'
               viewBox='0 0 24 24'
               fill='none'
               stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
               className='icon icon-tabler icons-tabler-outline icon-tabler-point'
             >
               <path stroke='none' d='M0 0h24v24H0z' fill='none' />

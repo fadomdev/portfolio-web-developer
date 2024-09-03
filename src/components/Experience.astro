@@ -1,51 +1,23 @@
 ---
-import Project from '../components/Project.astro'
-import { projects, websites } from '../data/projects.js'
+import Work from './Work.astro'
+import works from '../data/works.json'
 ---
 
 <div>
-  <h2
-    class='text-4xl text-stone-500 dark:text-stone-300 font-bold mb-10 text-center'
-  >
+  <h2 class='text-4xl text-zinc-600 dark:text-zinc-300 font-light mb-10'>
     Experiencia
   </h2>
-  <!-- 
+
   <div class='flex justify-center gap-4 flex-wrap mt-4'>
-    {
-      websites.map((website) => (
-        <a
-          href={website.url}
-          target='_blank'
-          class='flex flex-col items-center bg-stone-100  rounded-lg shadow md:flex-row md:max-w-xl hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-800 dark:hover:bg-stone-700'
-        >
-          <img
-            class='object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg'
-            src={website.poster}
-            alt=''
-          />
-          <div class='flex flex-col justify-between p-4 leading-normal'>
-            <h5 class='mb-2 text-2xl font-bold tracking-tight text-stone-600 dark:text-white'>
-              {website.title}
-            </h5>
-            <p class='mb-3 font-normal text-stone-500 dark:text-stone-400'>
-              {website.description}
-            </p>
-          </div>
-        </a>
-      ))
-    }
-  </div>
-  -->
-  <div class='flex justify-center gap-4 flex-wrap mt-4'>
-    <ol class='relative border-s border-stone-300 dark:border-stone-600'>
+    <ol class='relative border-s border-zinc-300 dark:border-zinc-600'>
       {
-        projects.map((project) => (
-          <Project
+        works.data.map((project) => (
+          <Work
             title={project.title}
             subtitle={project.subtitle}
             date={project.date}
             description={project.description}
-            technologies={project.technologies}
+            skills={project.skills}
           />
         ))
       }

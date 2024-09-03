@@ -1,24 +1,23 @@
 ---
-import Skill from './Skill.astro'
 import LevelSkill from './LevelSkill'
 import skills from '../data/skills.json'
 ---
 
 <div class='flex-col mt-4'>
-  <h2
-    class='text-4xl text-stone-500 dark:text-stone-300 font-bold mb-10 text-center'
-  >
+  <h2 class='text-4xl text-zinc-600 dark:text-zinc-200 font-light mb-10'>
     Tecnologías
   </h2>
-  <div class='flex justify-center gap-4 flex-wrap mt-4'>
+  <div
+    class='flex justify-center gap-4 flex-wrap mt-4 animate-fade-up animate-once animate-fill-forwards'
+  >
     {
       skills.data.map((skill, index) => (
-        <div class='bg-stone-100 p-4 rounded-md font-semibold dark:bg-stone-600'>
-          <p class='text-stone-600 dark:text-stone-300  text-center'>
+        <div class='border border-zinc-300 dark:border-zinc-600 bg-zinc-100 p-4 rounded-md font-semibold dark:bg-zinc-900'>
+          <p class='text-zinc-700 dark:text-zinc-300 text-center'>
             {skill.name}
           </p>
           <ul>
-            <li class='text-stone-400'>
+            <li class='text-zinc-300'>
               <LevelSkill level={skill.level} />
             </li>
           </ul>
