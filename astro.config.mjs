@@ -4,11 +4,11 @@ import react from '@astrojs/react'
 import db from '@astrojs/db'
 
 // Import /serverless for a Serverless SSR site
-import vercelServerless from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
   integrations: [tailwind(), react(), db()],
-  adapter: vercelServerless()
+  adapter: vercel()
 })
