@@ -1,0 +1,69 @@
+---
+import LinkButton from '../components/ui/LinkButton'
+import {
+  BiLogoGithub,
+  BiLogoLinkedinSquare,
+  BiDownload,
+  BiPhone,
+  BiMailSend
+} from 'react-icons/bi'
+import ProfileType from './ProfileType'
+---
+
+<div class='flex-col'>
+  <div class='py-8'>
+    <picture
+      class='flex h-32 w-32 rounded-full overflow-hidden border-2 border-zinc-50 animate-fade-down'
+    >
+      <source srcset='/assets/profile2.jpeg' type='image/svg+xml' />
+      <figure>
+        <img
+          src='/assets/profile2.jpeg'
+          alt='Astro Logo'
+          class='object-cover'
+        />
+      </figure>
+    </picture>
+  </div>
+
+  <div class='flex flex-col md:flex-row gap-2 md:gap-4 pb-5'>
+    <LinkButton href='https://github.com/FrankieDev' target='_blank'>
+      <BiLogoGithub size={24} className='inline' />
+      GitHub</LinkButton
+    >
+    <LinkButton href='https://www.linkedin.com/in/fadom/' target='_blank'>
+      <BiLogoLinkedinSquare size={24} className='inline' />
+      LinkedIn</LinkButton
+    >
+    <LinkButton href='/resume.pdf' target='_blank'>
+      <BiDownload size={24} className='inline' />
+      Descargar CV</LinkButton
+    >
+  </div>
+</div>
+<div class='pt-2 h-16 lg:h-20'>
+  <ProfileType client:idle />
+</div>
+<!-- Yo -->
+<div class='flex flex-col'>
+  <div class='flex flex-col'>
+    <p class='text-zinc-700 dark:text-zinc-50'>
+      Desarrollador web con más de 10 años de experiencia en la creación de
+      aplicaciones web. Mi objetivo profesional es aportar al éxito de proyectos
+      innovadores mediante el diseño y desarrollo de soluciones tecnológicas
+      eficientes, escalables y alineadas con las últimas tendencias del mercado.
+    </p>
+  </div>
+  <div
+    class='flex flex-col md:flex-row gap-2 md:gap-4 text-center items-center py-5'
+  >
+    <LinkButton href='mailto:franciscoaquino19@gmail.com' target='_blank'>
+      <BiMailSend size={24} className='inline' />
+      franciscoaquino19@gmail.com</LinkButton
+    >
+    <LinkButton href='tel:+56 9 90479050' target='_blank'>
+      <BiPhone size={24} className='inline' />
+      +56 9 90479050</LinkButton
+    >
+  </div>
+</div>

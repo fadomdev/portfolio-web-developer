@@ -5,4 +5,11 @@ interface Contact {
   message: string
 }
 
-export type { Contact }
+interface ContactFormState {
+  fields: Contact
+  validationErrors: {
+    [key: string]: string
+  }
+}
+
+export type { Contact, ContactFormState }
