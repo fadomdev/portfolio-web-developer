@@ -3,57 +3,74 @@
     {
       "id": 1,
       "name": "HTML5",
-      "level": 5
+      "level": 5,
+      "icon": "brand-html5"
     },
     {
       "id": 2,
       "name": "CSS",
-      "level": 4
+      "level": 4,
+      "icon": "brand-css3"
     },
     {
       "id": 3,
       "name": "JavaScript",
-      "level": 4
+      "level": 4,
+      "icon": "brand-javascript"
     },
     {
       "id": 4,
       "name": "React",
-      "level": 4
+      "level": 4,
+      "icon": "brand-react"
     },
     {
       "id": 11,
       "name": "jQuery",
-      "level": 5
+      "level": 5,
+      "icon": "jquery"
     },
     {
       "id": 6,
       "name": "PHP",
-      "level": 4
+      "level": 4,
+      "icon": "brand-php"
     },
     {
       "id": 7,
       "name": "Laravel",
-      "level": 3
+      "level": 3,
+      "icon": "laravel-icon"
     },
     {
       "id": 8,
       "name": "MySQL",
-      "level": 5
+      "level": 5,
+      "icon": "brand-mysql"
     },
     {
       "id": 9,
       "name": "Bootstrap CSS",
-      "level": 4
+      "level": 4,
+      "icon": "brand-bootstrap"
     },
     {
       "id": 10,
       "name": " Tailwind CSS",
-      "level": 4
+      "level": 4,
+      "icon": "brand-tailwind"
     },
     {
       "id": 12,
-      "name": " Git & GitHub",
-      "level": 4
+      "name": "Git",
+      "level": 4,
+      "icon": "brand-git"
+    },
+    {
+      "id": 13,
+      "name": "GitHub",
+      "level": 4,
+      "icon": "brand-github"
     }
   ]
 }
