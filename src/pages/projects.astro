@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import MainProjects from '../components/Projects.astro'
+import SmallProjects from '../components/SmallProjects.astro'
+---
+
+<Layout title='Proyectos - Francisco Aquino Domínguez'>
+  <Header />
+  <main class='flex flex-col w-full max-w-7xl mx-auto px-4 py-8'>
+    <div class='text-center mb-12'>
+      <h1 class='text-5xl text-stone-600 dark:text-stone-300 font-light mb-6'>
+        Mis Proyectos
+      </h1>
+      <p
+        class='text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed'
+      >
+        Aquí encontrarás una colección completa de mis trabajos de desarrollo
+        web. Desde proyectos principales de gran escala hasta pequeños
+        experimentos y utilidades, cada uno representa un paso en mi journey
+        como desarrollador.
+      </p>
+      <div
+        class='mt-6 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-lg max-w-2xl mx-auto'
+      >
+        <p class='text-sm text-zinc-500 dark:text-zinc-400'>
+          <strong>💼 Proyectos Principales:</strong> Trabajos completos y profesionales<br
+          />
+          <strong>🛠️ Proyectos Pequeños:</strong> Experimentos, utilidades y prácticas
+          de tecnologías
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyectos Principales -->
+    <section class='mb-20'>
+      <MainProjects />
+    </section>
+
+    <!-- Proyectos Pequeños -->
+    <section>
+      <SmallProjects />
+    </section>
+  </main>
+</Layout>

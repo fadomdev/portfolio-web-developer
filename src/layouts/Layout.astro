@@ -18,9 +18,110 @@ const { title } = Astro.props
     />
     <link rel='icon' type='image/png' href='/favicon.png' />
     <meta name='generator' content={Astro.generator} />
+
     <title>{title}</title>
+
+    <!-- Script para prevenir destello del dark mode -->
+    <script is:inline>
+      ;(function () {
+        'use strict'
+
+        function applyTheme(theme) {
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+        }
+
+        try {
+          // Verificar si ya hay un tema aplicado (por si acaso)
+          const htmlClasses = document.documentElement.classList
+          if (htmlClasses.contains('dark') || htmlClasses.contains('light')) {
+            return // Ya hay un tema aplicado, no hacer nada
+          }
+
+          // Obtener el tema guardado de Flowbite
+          const savedTheme = localStorage.getItem('flowbite-theme-mode')
+          const computedTheme = localStorage.getItem('flowbite-theme-computed')
+
+          if (savedTheme === 'dark') {
+            applyTheme('dark')
+          } else if (savedTheme === 'light') {
+            applyTheme('light')
+          } else if (savedTheme === 'auto') {
+            // En modo auto, usar el tema computado si está disponible
+            if (computedTheme === 'dark') {
+              applyTheme('dark')
+            } else if (computedTheme === 'light') {
+              applyTheme('light')
+            } else {
+              // Si no hay tema computado, verificar preferencia del sistema
+              if (
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches
+              ) {
+                applyTheme('dark')
+              }
+            }
+          } else {
+            // No hay tema guardado, usar preferencia del sistema
+            if (
+              window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches
+            ) {
+              applyTheme('dark')
+            }
+          }
+        } catch (error) {
+          // En caso de error, usar preferencia del sistema como fallback
+          try {
+            if (
+              window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches
+            ) {
+              applyTheme('dark')
+            }
+          } catch (fallbackError) {
+            // Si todo falla, no hacer nada (mantener comportamiento por defecto)
+          }
+        }
+      })()
+    </script>
+
+    <!-- Estilos para prevenir destello -->
+    <style>
+      /* Prevenir destello del dark mode */
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      html.theme-loaded {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.1s ease-in-out;
+      }
+
+      /* Asegurar que el body sea visible después de aplicar el tema */
+      body {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      body.theme-loaded {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.1s ease-in-out;
+      }
+    </style>
   </head>
   <body class='bg-zinc-50 dark:bg-zinc-950 font-body'>
+    <script is:inline>
+      // Mostrar contenido después de aplicar el tema
+      document.documentElement.classList.add('theme-loaded')
+      document.body.classList.add('theme-loaded')
+    </script>
     <slot />
   </body>
 </html>

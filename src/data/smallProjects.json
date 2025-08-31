@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Calculadora Web",
+            "description": "Una calculadora simple construida con HTML, CSS y JavaScript puro.",
+            "image": "./images/projects/apsudamerica_app.jpg",
+            "url": "https://example.com/calculator",
+            "skills": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Lista de Tareas",
+            "description": "Aplicación de lista de tareas con funcionalidades de agregar, editar y eliminar tareas.",
+            "image": "./images/projects/apsudamerica_app.jpg",
+            "url": "https://example.com/todo",
+            "skills": [
+                "React",
+                "CSS3",
+                "JavaScript"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Reloj Digital",
+            "description": "Reloj digital interactivo con tema oscuro y claro.",
+            "image": "./images/projects/apsudamerica_app.jpg",
+            "url": "https://example.com/clock",
+            "skills": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Generador de Contraseñas",
+            "description": "Herramienta para generar contraseñas seguras con opciones personalizables.",
+            "image": "./images/projects/apsudamerica_app.jpg",
+            "url": "https://example.com/password",
+            "skills": [
+                "Vue.js",
+                "CSS3",
+                "JavaScript"
+            ]
+        }
+    ]
+}
