@@ -1,4 +1,5 @@
 //import { type Contact } from '../types/types'
+import { actions } from 'astro:actions'
 import { useState, useReducer, useEffect, useRef } from 'react'
 import type { ContactFormState } from '../types/types'
 import { formReducer, initialState, ActionType } from '../reducers/formReducer'
@@ -57,21 +58,29 @@ export default function ContactForm() {
       .then((res) => {
         return res.json()
       })
-      .then((data) => {
+      .then(async (data) => {
         if (data.error) {
           toast.error(data.error[0].message, {
             position: 'bottom-center'
           })
         } else {
-          toast.success('Mensaje enviado', {
-            position: 'bottom-center'
-          })
+          const { data, error } = await actions.form()
 
-          setIsInitialMount(true)
+          if (error) {
+            toast.error(error.message, {
+              position: 'bottom-center'
+            })
+          } else {
+            toast.success('Mensaje enviado', {
+              position: 'bottom-center'
+            })
 
-          dispatch({
-            type: ActionType.RESET_FORM
-          })
+            setIsInitialMount(true)
+
+            dispatch({
+              type: ActionType.RESET_FORM
+            })
+          }
         }
       })
       .catch((error) => {
