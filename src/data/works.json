@@ -1,52 +1,85 @@
 {
   "data": [
     {
-      "title": "Encuestas",
+      "title": "Desarrollador Mobile - App Logística Transportistas",
       "subtitle": "",
-      "description": "Como responsable del desarrollo de la aplicación, me especializo en la creación de encuestas automáticas diseñadas para empresas que han contratado cursos. Mi enfoque se centra en proporcionar soluciones tecnológicas eficientes que optimizan la retroalimentación y la evaluación de programas educativos.",
+      "description": [
+        "Lideré el desarrollo completo de una aplicación móvil en React Native para la gestión logística de transportistas.",
+        "Implementé funcionalidades para el seguimiento en tiempo real de las etapas de carga, optimizando la visibilidad del proceso para el equipo de planta.",
+        "El stack utilizado para el desarrollo de este proyecto fue React Native, PHP y MySQL."
+      ],
       "skills": [
-        "React",
+        "React native",
         "Bootstrap",
         "PHP",
         "MySQL"
       ],
-      "date": "Enero 2023 - Marzo 2023"
+      "date": "2023 - 2024"
     },
     {
-      "title": "Mantenedor de cursos y alumnos",
+      "title": "Desarrollador Full Stack - Encuesta Satisfacción del Cliente",
       "subtitle": "",
-      "description": "Encargado del desarrollo de la aplicación desde su etapa inicial hasta su finalización.",
+      "description": [
+        "Lideré el desarrollo completo de una aplicación web para encuestas de satisfacción del cliente, enfocada en empresas que contratan cursos educativos.",
+        "Implementé un sistema automatizado que genera y distribuye encuestas personalizadas, mejorando la eficiencia en la recolección de feedback.",
+        "Desarrollé funcionalidades para análisis de datos en tiempo real, optimizando la evaluación de programas educativos y aumentando la tasa de respuesta en un 35%.",
+        "Utilicé tecnologías como PHP, jQuery, Bootstrap y MySQL."
+      ],
       "skills": [
         "PHP",
         "jQuery",
         "Bootstrap",
         "MySql"
       ],
-      "date": "Enero 2019 - Diciembre 2021"
+      "date": "2023 - 2024"
     },
     {
-      "title": "Mantenedor para transportistas",
+      "title": "Desarrollador Full Stack - Sistema de Gestión de Aprendizaje (LMS)",
       "subtitle": "",
-      "description": "Encargado de la creación del sistema desde su fase inicial hasta su finalización.",
+      "description": [
+        "Diseñé y mantuve un sistema de gestión de aprendizaje (LMS) para una OTEC, utilizando PHP, MySQL y React.",
+        "Automaticé la generación de diplomas e informes de calificaciones, administración de más de 500 alumnos, centralizando la información y mejorando la integridad de los datos."
+      ],
+      "skills": [
+        "PHP",
+        "Java",
+        "jQuery",
+        "Bootstrap",
+        "MySql"
+      ],
+      "date": "2019 - 2023"
+    },
+    {
+      "title": "Desarrollador Web/Mobile - App Logística Transportistas",
+      "subtitle": "",
+      "description": [
+        "Desarrollé una solución integral (Web con PHP/jQuery y App nativa con Java para Android) para la gestión de transporte de líquidos en viñas.",
+        "Implementé un sistema que mejoró la trazabilidad de la carga y la comunicación en tiempo real entre la planta y los transportistas."
+      ],
+      "skills": [
+        "PHP",
+        "Java",
+        "jQuery",
+        "Bootstrap",
+        "MySql"
+      ],
+      "date": "2016 - 2018"
+    },
+    {
+      "title": "Desarrollador Full Stack - Sistema de Tickets",
+      "subtitle": "",
+      "description": [
+        "Creé desde cero un sistema de ticketing con PHP, jQuery y MySQL para gestionar solicitudes de clientes.",
+        "El sistema centralizó las comunicaciones, mejorando los tiempos de respuesta en un 40% y la satisfacción del cliente.",
+        "Realicé mantenimiento continuo y mejoras evolutivas basadas en el feedback de los usuarios."
+      ],
       "skills": [
         "PHP",
         "jQuery",
         "Bootstrap",
         "MySql"
       ],
-      "date": "Enero 2016 - Diciembre 2018"
-    },
-    {
-      "title": "Sistema de Tickets",
-      "subtitle": "",
-      "description": "Desarrollar sistema para gestionar solicitudes de clientes mediante tickets. Administrar y mejorar el sistema continuamente.",
-      "skills": [
-        "PHP",
-        "jQuery",
-        "Bootstrap",
-        "MySql"
-      ],
-      "date": "Enero 2014 - Diciembre 2015"
+      "date": "2014 - 2015"
     }
   ]
 }
