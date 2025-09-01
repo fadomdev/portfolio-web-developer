@@ -64,7 +64,7 @@ export default function ContactForm() {
             position: 'bottom-center'
           })
         } else {
-          const { data, error } = await actions.form()
+          const { data, error } = await actions.send()
 
           if (error) {
             toast.error(error.message, {
