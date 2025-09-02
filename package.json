@@ -3,15 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --remote",
+    "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build --remote",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test": "jest"
   },
   "dependencies": {
-    "@astrojs/db": "^0.17.1",
     "@astrojs/node": "^9.4.3",
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
