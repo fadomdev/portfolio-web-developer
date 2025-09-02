@@ -43,49 +43,21 @@ export default function ContactForm() {
       return false
     }
 
-    await fetch('/api/contacts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: formState.fields.name,
-        email: formState.fields.email,
-        subject: formState.fields.subject,
-        message: formState.fields.message
-      })
+    const { data, error } = await actions.send({
+      name: formState.fields.name,
+      email: formState.fields.email,
+      subject: formState.fields.subject,
+      message: formState.fields.message
     })
-      .then((res) => {
-        return res.json()
-      })
-      .then(async (data) => {
-        if (data.error) {
-          toast.error(data.error[0].message, {
-            position: 'bottom-center'
-          })
-        } else {
-          const { data, error } = await actions.send()
 
-          if (error) {
-            toast.error(error.message, {
-              position: 'bottom-center'
-            })
-          } else {
-            toast.success('Mensaje enviado', {
-              position: 'bottom-center'
-            })
+    if (error) {
+      toast.error(error.message, { position: 'bottom-center' })
+      return
+    }
 
-            setIsInitialMount(true)
-
-            dispatch({
-              type: ActionType.RESET_FORM
-            })
-          }
-        }
-      })
-      .catch((error) => {
-        toast(error)
-      })
+    toast.success('Mensaje enviado', { position: 'bottom-center' })
+    setIsInitialMount(true)
+    dispatch({ type: ActionType.RESET_FORM })
   }
 
   const handleInputChange = (
