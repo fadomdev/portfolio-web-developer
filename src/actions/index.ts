@@ -35,6 +35,7 @@ export const server = {
           args: [name.trim(), email.trim(), subject.trim(), message.trim()]
         })
       } catch (e: any) {
+        console.error(e)
         throw new ActionError({
           code: 'INTERNAL_SERVER_ERROR',
           message: 'Error guardando contacto.'
