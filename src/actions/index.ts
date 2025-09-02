@@ -6,13 +6,15 @@ const RESEND_RECEIVER_EMAIL = import.meta.env.RESEND_RECEIVER_EMAIL
 
 export const server = {
   send: defineAction({
-    accept: 'form',
+    accept: 'json',
     handler: async () => {
       const { data, error } = await resend.emails.send({
         from: 'fadomdev <contact@fadom.dev>',
         to: [RESEND_RECEIVER_EMAIL],
         subject: 'Contacto desde fadom.dev',
-        html: '<strong>It works!</strong>'
+        html: `
+          <h2>Nuevo mensaje de contacto</h2>
+        `
       })
 
       if (error) {
