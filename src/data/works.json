@@ -1,6 +1,25 @@
 {
   "data": [
     {
+      "title": "Desarrollador Full Stack - Sistema de Reservas para Logística de Contenedores",
+      "subtitle": "",
+      "description": [
+        "Desarrollé desde cero una aplicación web SPA para la gestión de reservas de horarios para transportistas, mejorando la eficiencia operativa y reduciendo conflictos de programación.",
+        "Implementé validación de bookings en tiempo real mediante API REST, gestión dinámica de capacidad de slots, manejo de horarios especiales, panel administrativo con control de usuarios y empresas, y sistema de anulación de reservas con trazabilidad completa.",
+        "El stack utilizado fue Laravel 12, React con TypeScript, Inertia.js, shadcn/ui, MySQL y Tailwind CSS."
+      ],
+      "skills": [
+        "Laravel 12",
+        "React",
+        "TypeScript",
+        "Inertia.js",
+        "MySQL",
+        "Tailwind CSS",
+        "shadcn/ui"
+      ],
+      "date": "2025"
+    },
+    {
       "title": "Desarrollador Mobile - App Logística Transportistas",
       "subtitle": "",
       "description": [
@@ -9,7 +28,7 @@
         "El stack utilizado para el desarrollo de este proyecto fue React Native, PHP y MySQL."
       ],
       "skills": [
-        "React native",
+        "React Native",
         "Bootstrap",
         "PHP",
         "MySQL"
@@ -22,12 +41,12 @@
       "description": [
         "Lideré el desarrollo completo de una aplicación web para encuestas de satisfacción del cliente, enfocada en empresas que contratan cursos educativos.",
         "Implementé un sistema automatizado que genera y distribuye encuestas personalizadas, mejorando la eficiencia en la recolección de feedback.",
-        "Desarrollé funcionalidades para análisis de datos en tiempo real, optimizando la evaluación de programas educativos y aumentando la tasa de respuesta en un 35%.",
-        "Utilicé tecnologías como PHP, jQuery, Bootstrap y MySQL."
+        "Desarrollé funcionalidades para análisis de datos en tiempo real, optimizando la evaluación de programas educativos.",
+        "Utilicé tecnologías como PHP, React, Bootstrap y MySQL."
       ],
       "skills": [
         "PHP",
-        "jQuery",
+        "React",
         "Bootstrap",
         "MySql"
       ],
