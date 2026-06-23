@@ -1,38 +1,197 @@
 ---
-import Skill from './Skill.astro'
+import Skill from "./Skill.astro";
+
 interface Props {
-  title: string
-  subtitle: string
-  date: string
-  description: string | string[]
-  skills: string[]
+    role: string;
+    title: string;
+    date: string;
+    description: string | string[];
+    skills: string[];
+    index?: number;
+    isLast?: boolean;
 }
 
-const { title, subtitle, date, description, skills } = Astro.props
+const {
+    role,
+    title,
+    date,
+    description,
+    skills,
+    index = 0,
+    isLast = false,
+} = Astro.props;
+
+// Role badge style — full static strings so Tailwind doesn't purge them
+const roleStyle: Record<string, string> = {
+    "Full Stack Developer":
+        "bg-bismark-50 text-bismark-700 border-bismark-200 dark:bg-bismark-900/30 dark:text-bismark-300 dark:border-bismark-700/40",
+    "Mobile Developer":
+        "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-900/30 dark:text-sky-300 dark:border-sky-700/40",
+    "Full Stack & Mobile Developer":
+        "bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-900/30 dark:text-violet-300 dark:border-violet-700/40",
+};
+
+const badgeClass =
+    roleStyle[role] ??
+    "bg-zinc-100 text-zinc-600 border-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:border-zinc-700";
+
+const descArray = typeof description === "string" ? [description] : description;
 ---
 
-<li class='mb-10 ms-4'>
-  <div
-    class='absolute w-3 h-3 bg-zinc-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-zinc-600 dark:bg-zinc-700'
-  >
-  </div>
-  <time
-    class='mb-1 text-sm font-normal leading-none text-zinc-600 dark:text-zinc-400'
-    >{date}</time
-  >
-  <h3 class='text-md font-semibold text-zinc-600 dark:text-zinc-300'>
-    {title}
-  </h3>
-  <p class='mb-4 text-base font-normal text-zinc-600 dark:text-zinc-400'>
-    {
-      description instanceof Array
-        ? description.map((desc) => (
-            <p class='mb-2 text-zinc-600 dark:text-zinc-400'>{desc}</p>
-          ))
-        : description
-    }
-  </p>
-  <p class='mb-4 text-base font-normal text-zinc-500 dark:text-zinc-400'>
-    {skills && skills.map((skill) => <Skill title={skill} />)}
-  </p>
+<li class="work-item relative pl-8 pb-8" style={`--i:${index}`}>
+    <!-- Timeline dot -->
+    <span
+        class="timeline-dot absolute left-[-7px] top-[1.4rem] flex items-center justify-center w-3.5 h-3.5 rounded-full bg-white dark:bg-zinc-950 border-2 border-bismark-400 dark:border-bismark-500 z-10"
+    >
+        <span
+            class="dot-inner w-[5px] h-[5px] rounded-full bg-bismark-400 dark:bg-bismark-500"
+        ></span>
+    </span>
+
+    <!-- Card -->
+    <article
+        class="work-card group rounded-xl border border-zinc-200 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 overflow-hidden"
+    >
+        <!-- Accent top bar -->
+        <div
+            class="card-bar h-[3px] w-full bg-gradient-to-r from-bismark-400/60 via-bismark-300/40 to-transparent dark:from-bismark-600/60 dark:via-bismark-700/40"
+        >
+        </div>
+
+        <div class="p-5">
+            <!-- Header row: role badge + date -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span
+                    class={`inline-flex items-center gap-1.5 px-2.5 py-[3px] text-[10px] font-bold uppercase tracking-widest rounded-full border ${badgeClass}`}
+                >
+                    <!-- Role icon dot -->
+                    <span class="w-1.5 h-1.5 rounded-full bg-current opacity-70"
+                    ></span>
+                    {role}
+                </span>
+
+                <time
+                    class="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-800/60 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-700/50 tabular-nums"
+                >
+                    {date}
+                </time>
+            </div>
+
+            <!-- Title -->
+            <h3
+                class="text-[15px] font-bold text-zinc-800 dark:text-zinc-100 leading-snug mb-3 pr-2"
+            >
+                {title}
+            </h3>
+
+            <!-- Description -->
+            <div class="mb-4 space-y-1.5">
+                {
+                    descArray.map((d) => (
+                        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                            {d}
+                        </p>
+                    ))
+                }
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-zinc-100 dark:border-zinc-800 mb-3">
+            </div>
+
+            <!-- Skills -->
+            <div class="flex flex-wrap gap-1">
+                {skills.map((skill) => <Skill title={skill} />)}
+            </div>
+        </div>
+    </article>
 </li>
+
+<style>
+    /* ── Initial hidden state ─────────────────────────────────────────── */
+    .work-item {
+        opacity: 0;
+        transform: translateX(-14px);
+    }
+
+    /* ── Animate in ───────────────────────────────────────────────────── */
+    .work-item.is-visible {
+        animation: workIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: calc(var(--i) * 90ms);
+    }
+
+    /* ── Card hover ───────────────────────────────────────────────────── */
+    .work-card {
+        transition:
+            box-shadow 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .work-item.is-visible .work-card:hover {
+        box-shadow:
+            0 8px 28px -6px rgba(0, 0, 0, 0.12),
+            0 2px 8px -2px rgba(67, 142, 150, 0.12);
+        border-color: rgba(67, 142, 150, 0.35);
+        transform: translateX(4px);
+    }
+
+    /* ── Accent bar expand on hover ───────────────────────────────────── */
+    .card-bar {
+        transition: opacity 0.3s ease;
+        opacity: 0.6;
+    }
+    .work-card:hover .card-bar {
+        opacity: 1;
+    }
+
+    /* ── Timeline dot glow on hover ───────────────────────────────────── */
+    .timeline-dot {
+        transition:
+            box-shadow 0.3s ease,
+            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .work-item:hover .timeline-dot {
+        box-shadow: 0 0 0 5px rgba(67, 142, 150, 0.15);
+        transform: scale(1.25);
+    }
+
+    .dot-inner {
+        transition: transform 0.3s ease;
+    }
+    .work-item:hover .dot-inner {
+        transform: scale(1.4);
+    }
+
+    /* ── Entrance keyframe ────────────────────────────────────────────── */
+    @keyframes workIn {
+        from {
+            opacity: 0;
+            transform: translateX(-14px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+
+<script>
+    // Observe every work item and animate it in when it enters the viewport
+    const items = document.querySelectorAll(".work-item");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -30px 0px" },
+    );
+
+    items.forEach((item) => observer.observe(item));
+</script>

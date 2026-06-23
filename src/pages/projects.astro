@@ -7,39 +7,63 @@ import SmallProjects from '../components/SmallProjects.astro'
 
 <Layout title='Proyectos - Francisco Aquino Domínguez'>
   <Header />
-  <main class='flex flex-col w-full max-w-[720px] mx-auto px-4 py-8'>
-    <div class='text-center mb-12'>
-      <h1 class='text-5xl text-stone-600 dark:text-stone-300 font-light mb-6'>
-        Mis Proyectos
+  <main class='flex flex-col w-full max-w-[860px] mx-auto px-4 py-10'>
+    <!-- Hero -->
+    <div class='mb-14'>
+      <h1
+        class='text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight mb-3 leading-tight'
+      >
+        Proyectos
       </h1>
       <p
-        class='text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed'
+        class='text-base text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-lg'
       >
-        Aquí encontrarás una colección completa de mis trabajos de desarrollo
-        web. Desde proyectos principales de gran escala hasta pequeños
-        experimentos y utilidades, cada uno representa un paso en mi journey
-        como desarrollador.
+        Trabajos reales y experimentos. Cada proyecto representa algo que
+        aprendí construyéndolo.
       </p>
-      <div
-        class='mt-6 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-lg max-w-2xl mx-auto'
-      >
-        <p class='text-sm text-zinc-500 dark:text-zinc-400'>
-          <strong>💼 Proyectos Principales:</strong> Trabajos completos y profesionales<br
-          />
-          <strong>🛠️ Proyectos Pequeños:</strong> Experimentos, utilidades y prácticas
-          de tecnologías
-        </p>
-      </div>
     </div>
 
     <!-- Proyectos Principales -->
-    <section class='mb-20'>
+    <section class='mb-16'>
       <MainProjects />
     </section>
 
+    <!-- Divisor -->
+    <div class='h-px bg-zinc-200 dark:bg-zinc-800 mb-16'></div>
+
     <!-- Proyectos Pequeños -->
-    <section>
+    <section class='mb-10'>
       <SmallProjects />
     </section>
   </main>
+  <footer class='mt-8'>
+    <div
+      class='flex flex-col items-center justify-center w-full h-24 border-t border-zinc-300 dark:border-zinc-800'
+    >
+      <span class='text-sm text-gray-500'>
+        Made with
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          class='inline text-red-600'
+          ><path
+            d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'
+          ></path></svg
+        >
+        by
+        <a
+          href='https://fadom.dev'
+          class='font-bold no-underline text-gray-500 hover:text-gray-400'
+          >@fadomdev</a
+        >
+      </span>
+    </div>
+  </footer>
 </Layout>

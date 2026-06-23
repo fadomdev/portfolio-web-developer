@@ -1,38 +1,176 @@
 ---
-import LevelSkill from './LevelSkill'
 import skills from '../data/skills.json'
 import { Icon } from 'astro-icon/components'
+
+// Accent color as RGB triplets — used with rgba() for dynamic opacity
+const accentRgb: Record<string, string> = {
+  'brand-html5':      '249,115,22',   // orange-500
+  'brand-css3':       '59,130,246',   // blue-500
+  'brand-javascript': '234,179,8',    // yellow-500
+  'brand-react':      '34,211,238',   // cyan-400
+  'jquery':           '96,165,250',   // blue-400
+  'brand-php':        '139,92,246',   // violet-500
+  'laravel-icon':     '239,68,68',    // red-500
+  'brand-mysql':      '20,184,166',   // teal-500
+  'brand-bootstrap':  '168,85,247',   // purple-500
+  'brand-tailwind':   '56,189,248',   // sky-400
+  'brand-git':        '234,88,12',    // orange-600
+  'brand-github':     '148,163,184',  // slate-400
+}
+
+const getAccent = (icon?: string) =>
+  icon ? (accentRgb[icon] ?? '148,163,184') : '148,163,184'
+
+const categories = [
+  { key: 'frontend' as const, label: 'Frontend' },
+  { key: 'backend'  as const, label: 'Backend' },
+  { key: 'tools'    as const, label: 'Base de Datos & Herramientas' },
+]
+
+// Assign global staggered delay index across all categories
+let delayIdx = 0
+const categorizedSkills = categories.map(cat => ({
+  ...cat,
+  skills: skills.data
+    .filter(s => s.category === cat.key)
+    .map(s => ({ ...s, animDelay: (delayIdx++) * 65 })),
+}))
 ---
 
-<div class='flex-col mt-4'>
+<div class='flex-col mt-4 skills-section'>
   <h2 class='text-4xl text-zinc-600 dark:text-zinc-200 font-light mb-10'>
     Tecnologías
   </h2>
-  <div
-    class='flex flex-wrap justify-center lg:justify-between gap-4 mt-4 animate-fade-up animate-once animate-fill-forwards'
-  >
-    {
-      skills.data.map((skill, index) => (
-        <div class='w-full group flex flex-col basis-1/3 lg:basis-1/5 items-center border border-zinc-300 dark:border-zinc-600 bg-zinc-100 p-4 rounded-md font-semibold dark:bg-zinc-900 transition duration-500 hover:transition hover:duration-500 hover:scale-110'>
-          {skill.icon && (
-            <Icon
-              name={skill.icon}
-              class='h-8 w-8 text-zinc-700 dark:text-zinc-300 mb-2 transition duration-500 group-hover:transition group-hover:duration-500 group-hover:scale-125 drop-shadow-lg'
-            />
-          )}
 
-          <p class='text-zinc-700 dark:text-zinc-300 text-center group-hover:scale-100'>
-            {skill.name}
-          </p>
-          {/*
-          <ul>
-            <li class='text-zinc-300'>
-              <LevelSkill level={skill.level} />
-            </li>
-          </ul>
-          */}
+  <div class='flex flex-col gap-8'>
+    {categorizedSkills.map(cat => (
+      <div>
+        <!-- Category label with divider -->
+        <div class='flex items-center gap-3 mb-4'>
+          <span class='text-[11px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500'>
+            {cat.label}
+          </span>
+          <div class='flex-1 h-px bg-zinc-200 dark:bg-zinc-700/50' />
         </div>
-      ))
-    }
+
+        <!-- Skills row -->
+        <div class='flex flex-wrap gap-3'>
+          {cat.skills.map(skill => (
+            <div
+              class='skill-card group relative flex flex-col items-center gap-2 p-3 pt-4 rounded-xl border border-zinc-200 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 overflow-hidden cursor-default'
+              style={`--rgb:${getAccent(skill.icon)};--delay:${skill.animDelay}ms;width:92px`}
+            >
+              <!-- Radial glow background (visible on hover) -->
+              <div class='glow-bg absolute inset-0 pointer-events-none' />
+
+              {skill.icon && (
+                <div class='icon-wrap relative z-10 w-12 h-12 rounded-xl flex items-center justify-center'>
+                  <Icon name={skill.icon} class='h-7 w-7' />
+                </div>
+              )}
+
+              <p class='relative z-10 text-zinc-700 dark:text-zinc-300 text-xs font-semibold text-center leading-tight px-0.5'>
+                {skill.name.trim()}
+              </p>
+
+
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </div>
+
+<style>
+  /* ── Initial state: hidden before intersection ─────────────────────── */
+  .skill-card {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+
+  /* ── Animate in when section enters viewport ───────────────────────── */
+  .skills-section.in-view .skill-card {
+    animation: skillIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0ms);
+    transition:
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  /* ── Hover: lift + glow shadow ─────────────────────────────────────── */
+  .skills-section.in-view .skill-card:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+      0 14px 32px -6px rgba(var(--rgb), 0.28),
+      0 4px 10px -2px rgba(var(--rgb), 0.14);
+    border-color: rgba(var(--rgb), 0.45);
+  }
+
+  /* ── Radial top-glow overlay ───────────────────────────────────────── */
+  .glow-bg {
+    background: radial-gradient(
+      ellipse at 50% -10%,
+      rgba(var(--rgb), 0.15) 0%,
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .skill-card:hover .glow-bg { opacity: 1; }
+
+  /* ── Icon wrapper ─────────────────────────────────────────────────── */
+  .icon-wrap {
+    background: rgba(var(--rgb), 0.1);
+    transition:
+      background 0.3s ease,
+      transform  0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .skill-card:hover .icon-wrap {
+    background: rgba(var(--rgb), 0.18);
+    transform: scale(1.12) translateY(-2px);
+  }
+
+  /* ── Icon: colour + drop-shadow glow ─────────────────────────────── */
+  /* Use :global(svg) because <Icon> renders into a scope-less SVG */
+  .icon-wrap :global(svg) {
+    color: rgba(var(--rgb), 1);
+    transition: filter 0.3s ease;
+  }
+  .skill-card:hover .icon-wrap :global(svg) {
+    filter: drop-shadow(0 0 8px rgba(var(--rgb), 0.65));
+  }
+
+  /* ── Level dots ───────────────────────────────────────────────────── */
+  .skill-dot { background: rgba(var(--rgb), 1); }
+
+  /* ── Entrance keyframe ────────────────────────────────────────────── */
+  @keyframes skillIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>
+
+<script>
+  // Trigger entrance animations once the section scrolls into view
+  const section = document.querySelector('.skills-section')
+  if (section) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add('in-view')
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.05 }
+    )
+    observer.observe(section)
+  }
+</script>

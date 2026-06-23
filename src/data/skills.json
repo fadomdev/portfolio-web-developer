@@ -4,73 +4,113 @@
       "id": 1,
       "name": "HTML5",
       "level": 5,
-      "icon": "brand-html5"
+      "icon": "brand-html5",
+      "category": "frontend"
     },
     {
       "id": 2,
       "name": "CSS",
       "level": 4,
-      "icon": "brand-css3"
+      "icon": "brand-css3",
+      "category": "frontend"
     },
     {
       "id": 3,
       "name": "JavaScript",
       "level": 4,
-      "icon": "brand-javascript"
+      "icon": "brand-javascript",
+      "category": "frontend"
     },
     {
       "id": 4,
       "name": "React",
       "level": 4,
-      "icon": "brand-react"
+      "icon": "brand-react",
+      "category": "frontend"
     },
     {
       "id": 11,
       "name": "jQuery",
       "level": 5,
-      "icon": "jquery"
+      "icon": "jquery",
+      "category": "frontend"
+    },
+    {
+      "id": 9,
+      "name": "Bootstrap",
+      "level": 4,
+      "icon": "brand-bootstrap",
+      "category": "frontend"
+    },
+    {
+      "id": 10,
+      "name": "Tailwind CSS",
+      "level": 4,
+      "icon": "brand-tailwind",
+      "category": "frontend"
     },
     {
       "id": 6,
       "name": "PHP",
       "level": 4,
-      "icon": "brand-php"
+      "icon": "brand-php",
+      "category": "backend"
     },
     {
       "id": 7,
       "name": "Laravel",
       "level": 3,
-      "icon": "laravel-icon"
+      "icon": "laravel-icon",
+      "category": "backend"
     },
     {
       "id": 8,
       "name": "MySQL",
       "level": 5,
-      "icon": "brand-mysql"
-    },
-    {
-      "id": 9,
-      "name": "Bootstrap CSS",
-      "level": 4,
-      "icon": "brand-bootstrap"
-    },
-    {
-      "id": 10,
-      "name": " Tailwind CSS",
-      "level": 4,
-      "icon": "brand-tailwind"
+      "icon": "brand-mysql",
+      "category": "tools"
     },
     {
       "id": 12,
       "name": "Git",
       "level": 4,
-      "icon": "brand-git"
+      "icon": "brand-git",
+      "category": "tools"
     },
     {
       "id": 13,
       "name": "GitHub",
       "level": 4,
-      "icon": "brand-github"
+      "icon": "brand-github",
+      "category": "tools"
+    },
+    {
+      "id": 14,
+      "name": "Node.js",
+      "level": 4,
+      "icon": "brand-nodejs",
+      "category": "backend"
+    },
+    {
+      "id": 15,
+      "name": "Express.js",
+      "level": 4,
+      "icon": "brand-express",
+      "category": "backend"
+    },
+    {
+      "id": 16,
+      "name": "Next.js",
+      "level": 4,
+      "icon": "brand-nextjs",
+      "category": "frontend"
+    },
+    {
+      "id": 17,
+      "name": "Astro",
+      "level": 4,
+      "icon": "brand-astro",
+      "category": "frontend"
     }
   ]
 }

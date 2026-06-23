@@ -1,13 +1,9 @@
 {
   "data": [
     {
-      "title": "Desarrollador Full Stack - Sistema de Reservas para Logística de Contenedores",
-      "subtitle": "",
-      "description": [
-        "Desarrollé desde cero una aplicación web SPA para la gestión de reservas de horarios para transportistas, mejorando la eficiencia operativa y reduciendo conflictos de programación.",
-        "Implementé validación de bookings en tiempo real mediante API REST, gestión dinámica de capacidad de slots, manejo de horarios especiales, panel administrativo con control de usuarios y empresas, y sistema de anulación de reservas con trazabilidad completa.",
-        "El stack utilizado fue Laravel 12, React con TypeScript, Inertia.js, shadcn/ui, MySQL y Tailwind CSS."
-      ],
+      "role": "Full Stack Developer",
+      "title": "Plataforma de Reservas — Logística de Contenedores",
+      "description": "Construí desde cero una SPA para gestionar reservas de transportistas con validación en tiempo real, control dinámico de capacidad y trazabilidad completa — eliminando los conflictos de programación operativa.",
       "skills": [
         "Laravel 12",
         "React",
@@ -20,85 +16,39 @@
       "date": "2025"
     },
     {
-      "title": "Desarrollador Mobile - App Logística Transportistas",
-      "subtitle": "",
-      "description": [
-        "Lideré el desarrollo completo de una aplicación móvil en React Native para la gestión logística de transportistas.",
-        "Implementé funcionalidades para el seguimiento en tiempo real de las etapas de carga, optimizando la visibilidad del proceso para el equipo de planta.",
-        "El stack utilizado para el desarrollo de este proyecto fue React Native, PHP y MySQL."
-      ],
-      "skills": [
-        "React Native",
-        "Bootstrap",
-        "PHP",
-        "MySQL"
-      ],
-      "date": "2023 - 2024"
+      "role": "Mobile Developer",
+      "title": "App Móvil de Logística para Transportistas",
+      "description": "Lideré el desarrollo de una app React Native para el seguimiento en tiempo real de etapas de carga, dando visibilidad total del proceso entre planta y transportistas.",
+      "skills": ["React Native", "PHP", "MySQL"],
+      "date": "2023 – 2024"
     },
     {
-      "title": "Desarrollador Full Stack - Encuesta Satisfacción del Cliente",
-      "subtitle": "",
-      "description": [
-        "Lideré el desarrollo completo de una aplicación web para encuestas de satisfacción del cliente, enfocada en empresas que contratan cursos educativos.",
-        "Implementé un sistema automatizado que genera y distribuye encuestas personalizadas, mejorando la eficiencia en la recolección de feedback.",
-        "Desarrollé funcionalidades para análisis de datos en tiempo real, optimizando la evaluación de programas educativos.",
-        "Utilicé tecnologías como PHP, React, Bootstrap y MySQL."
-      ],
-      "skills": [
-        "PHP",
-        "React",
-        "Bootstrap",
-        "MySql"
-      ],
-      "date": "2023 - 2024"
+      "role": "Full Stack Developer",
+      "title": "Sistema de Encuestas de Satisfacción del Cliente",
+      "description": "Plataforma que genera y distribuye encuestas personalizadas automáticamente, con análisis de datos en tiempo real para medir y mejorar la calidad de programas educativos.",
+      "skills": ["PHP", "React", "Bootstrap", "MySQL"],
+      "date": "2023 – 2024"
     },
     {
-      "title": "Desarrollador Full Stack - Sistema de Gestión de Aprendizaje (LMS)",
-      "subtitle": "",
-      "description": [
-        "Diseñé y mantuve un sistema de gestión de aprendizaje (LMS) para una OTEC, utilizando PHP, MySQL y React.",
-        "Automaticé la generación de diplomas e informes de calificaciones, administración de más de 500 alumnos, centralizando la información y mejorando la integridad de los datos."
-      ],
-      "skills": [
-        "PHP",
-        "Java",
-        "jQuery",
-        "Bootstrap",
-        "MySql"
-      ],
-      "date": "2019 - 2023"
+      "role": "Full Stack Developer",
+      "title": "Sistema LMS para OTEC Educativa",
+      "description": "Diseñé y mantuve un LMS completo para gestionar +500 alumnos, automatizando la generación de diplomas e informes de notas y centralizando toda la información académica.",
+      "skills": ["PHP", "jQuery", "Bootstrap", "MySQL"],
+      "date": "2019 – 2023"
     },
     {
-      "title": "Desarrollador Web/Mobile - App Logística Transportistas",
-      "subtitle": "",
-      "description": [
-        "Desarrollé una solución integral (Web con PHP/jQuery y App nativa con Java para Android) para la gestión de transporte de líquidos en viñas.",
-        "Implementé un sistema que mejoró la trazabilidad de la carga y la comunicación en tiempo real entre la planta y los transportistas."
-      ],
-      "skills": [
-        "PHP",
-        "Java",
-        "jQuery",
-        "Bootstrap",
-        "MySql"
-      ],
-      "date": "2016 - 2018"
+      "role": "Full Stack & Mobile Developer",
+      "title": "Gestión de Transporte de Carga en Viñas",
+      "description": "Solución integral web + app Android nativa en Java para la gestión de transporte de líquidos en viñas, mejorando la trazabilidad de carga y la comunicación en tiempo real entre planta y conductores.",
+      "skills": ["PHP", "jQuery", "Java", "Bootstrap", "MySQL"],
+      "date": "2016 – 2018"
     },
     {
-      "title": "Desarrollador Full Stack - Sistema de Tickets",
-      "subtitle": "",
-      "description": [
-        "Creé desde cero un sistema de ticketing con PHP, jQuery y MySQL para gestionar solicitudes de clientes.",
-        "El sistema centralizó las comunicaciones, mejorando los tiempos de respuesta en un 40% y la satisfacción del cliente.",
-        "Realicé mantenimiento continuo y mejoras evolutivas basadas en el feedback de los usuarios."
-      ],
-      "skills": [
-        "PHP",
-        "jQuery",
-        "Bootstrap",
-        "MySql"
-      ],
-      "date": "2014 - 2015"
+      "role": "Full Stack Developer",
+      "title": "Sistema de Ticketing para Soporte al Cliente",
+      "description": "Sistema desde cero que centralizó la comunicación con clientes y logró un 40 % de mejora en tiempos de respuesta, aumentando la satisfacción y fidelización de usuarios.",
+      "skills": ["PHP", "jQuery", "Bootstrap", "MySQL"],
+      "date": "2014 – 2015"
     }
   ]
 }

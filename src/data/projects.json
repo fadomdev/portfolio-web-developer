@@ -2,8 +2,21 @@
     "data": [
         {
             "id": 1,
+            "title": "Generador de Códigos QR",
+            "description": "Aplicación web para generar códigos QR personalizados desde distintos tipos de contenido: URL, texto, email, teléfono, WiFi y SMS. Incluye modo oscuro, opciones de personalización y descarga del QR generado.",
+            "image": "./images/projects/qr_generator_app.jpg",
+            "url": "https://qr-gen-flame-pi.vercel.app",
+            "skills": [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Vite"
+            ]
+        },
+        {
+            "id": 2,
             "title": "Apsudamerica.cl",
-            "description": "Landing page for a company that provides services for the development of web applications.",
+            "description": "Landing page para empresa que ofrece servicios de desarrollo de aplicaciones web, con diseño moderno y responsivo.",
             "image": "./images/projects/apsudamerica_app.jpg",
             "url": "https://apsudamerica.com",
             "skills": [

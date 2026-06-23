@@ -1,26 +1,50 @@
 ---
-import Work from './Work.astro'
-import works from '../data/works.json'
+import Work from "./Work.astro";
+import works from "../data/works.json";
 ---
 
 <div>
-  <h2 class='text-4xl text-zinc-600 dark:text-zinc-300 font-light mb-10'>
-    Experiencia
-  </h2>
+    <h2 class="text-4xl text-zinc-600 dark:text-zinc-300 font-light mb-10">
+        Experiencia
+    </h2>
 
-  <div class='flex justify-center gap-4 flex-wrap mt-4'>
-    <ol class='relative border-s border-zinc-300 dark:border-zinc-600'>
-      {
-        works.data.map((project) => (
-          <Work
-            title={project.title}
-            subtitle={project.subtitle}
-            date={project.date}
-            description={project.description}
-            skills={project.skills}
-          />
-        ))
-      }
+    <ol class="experience-timeline relative">
+        {
+            works.data.map((work, index) => (
+                <Work
+                    role={work.role}
+                    title={work.title}
+                    date={work.date}
+                    description={work.description}
+                    skills={work.skills}
+                    index={index}
+                    isLast={index === works.data.length - 1}
+                />
+            ))
+        }
     </ol>
-  </div>
 </div>
+
+<style>
+    /* Gradient vertical line */
+    .experience-timeline {
+        margin-left: 0.5rem;
+    }
+
+    .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        border-radius: 1px;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(67, 142, 150, 0.45) 6%,
+            rgba(67, 142, 150, 0.45) 94%,
+            transparent 100%
+        );
+    }
+</style>
