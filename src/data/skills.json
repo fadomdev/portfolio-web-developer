@@ -104,13 +104,6 @@
       "level": 4,
       "icon": "brand-nextjs",
       "category": "frontend"
-    },
-    {
-      "id": 17,
-      "name": "Astro",
-      "level": 4,
-      "icon": "brand-astro",
-      "category": "frontend"
     }
   ]
 }

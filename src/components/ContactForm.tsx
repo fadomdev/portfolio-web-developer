@@ -87,7 +87,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor='name'
-            className='flex items-center gap-2 mb-1 text-sm font-medium text-zinc-700 dark:text-zinc-300'
+            className='flex items-center gap-2 mb-1 text-sm font-normal text-zinc-600 dark:text-zinc-300'
           >
             Nombre
             <span className='text-red-500' aria-hidden='true'>
@@ -103,22 +103,21 @@ export default function ContactForm() {
             required
             aria-invalid={!!formState.validationErrors?.name}
             aria-describedby='name-error'
-            className={`bg-zinc-50 border text-zinc-700 text-sm rounded-md block w-full px-3 py-2.5 dark:bg-zinc-900 dark:placeholder-zinc-400 dark:text-zinc-100
+            className={`bg-white/60 border border-[0.5px] text-zinc-700 text-sm rounded-lg block w-full px-3 py-2 dark:bg-zinc-950/40 dark:placeholder-zinc-500 dark:text-zinc-100
               outline-none transition shadow-sm
-              ${
-                formState.validationErrors?.name
-                  ? 'border-red-500 ring-2 ring-red-200 dark:ring-red-900'
-                  : 'border-zinc-300 focus:ring-2 focus:ring-sky-300 dark:border-zinc-700 dark:focus:ring-sky-700'
+              ${formState.validationErrors?.name
+                ? 'border-red-500 ring-1 ring-red-200 dark:ring-red-900'
+                : 'border-zinc-200 focus:ring-1 focus:ring-zinc-300 focus:border-zinc-300 dark:border-zinc-800 dark:focus:ring-zinc-700 dark:focus:border-zinc-700'
               }`}
             placeholder='Su nombre completo'
           />
           {formState.validationErrors?.name && (
             <p
               id='name-error'
-              className='mt-1 text-sm text-red-600 flex items-start gap-1'
+              className='mt-1 text-xs text-red-500 dark:text-red-400 flex items-start gap-1'
             >
               <svg
-                className='w-4 h-4 mt-0.5 shrink-0'
+                className='w-3.5 h-3.5 mt-0.5 shrink-0'
                 viewBox='0 0 20 20'
                 fill='currentColor'
                 aria-hidden='true'
@@ -136,7 +135,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor='email'
-            className='flex items-center gap-2 mb-1 text-sm font-medium text-zinc-700 dark:text-zinc-300'
+            className='flex items-center gap-2 mb-1 text-sm font-normal text-zinc-600 dark:text-zinc-400'
           >
             Email
             <span className='text-red-500' aria-hidden='true'>
@@ -152,22 +151,21 @@ export default function ContactForm() {
             required
             aria-invalid={!!formState.validationErrors.email}
             aria-describedby='email-error'
-            className={`bg-zinc-50 border text-zinc-700 text-sm rounded-md block w-full px-3 py-2.5 dark:bg-zinc-900 dark:placeholder-zinc-400 dark:text-zinc-100
+            className={`bg-white/60 border border-[0.5px] text-zinc-700 text-sm rounded-lg block w-full px-3 py-2 dark:bg-zinc-950/40 dark:placeholder-zinc-500 dark:text-zinc-100
               outline-none transition shadow-sm
-              ${
-                formState.validationErrors.email
-                  ? 'border-red-500 ring-2 ring-red-200 dark:ring-red-900'
-                  : 'border-zinc-300 focus:ring-2 focus:ring-sky-300 dark:border-zinc-700 dark:focus:ring-sky-700'
+              ${formState.validationErrors.email
+                ? 'border-red-500 ring-1 ring-red-200 dark:ring-red-900'
+                : 'border-zinc-200 focus:ring-1 focus:ring-zinc-300 focus:border-zinc-300 dark:border-zinc-800 dark:focus:ring-zinc-700 dark:focus:border-zinc-700'
               }`}
             placeholder='micorreo@gmail.com'
           />
           {formState.validationErrors.email && (
             <p
               id='email-error'
-              className='mt-1 text-sm text-red-600 flex items-start gap-1'
+              className='mt-1 text-xs text-red-500 dark:text-red-400 flex items-start gap-1'
             >
               <svg
-                className='w-4 h-4 mt-0.5 shrink-0'
+                className='w-3.5 h-3.5 mt-0.5 shrink-0'
                 viewBox='0 0 20 20'
                 fill='currentColor'
                 aria-hidden='true'
@@ -185,7 +183,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor='subject'
-            className='flex items-center gap-2 mb-1 text-sm font-medium text-zinc-700 dark:text-zinc-300'
+            className='flex items-center gap-2 mb-1 text-sm font-normal text-zinc-600 dark:text-zinc-400'
           >
             Asunto
             <span className='text-red-500' aria-hidden='true'>
@@ -201,22 +199,21 @@ export default function ContactForm() {
             required
             aria-invalid={!!formState.validationErrors.subject}
             aria-describedby='subject-error'
-            className={`bg-zinc-50 border text-zinc-700 text-sm rounded-md block w-full px-3 py-2.5 dark:bg-zinc-900 dark:placeholder-zinc-400 dark:text-zinc-100
+            className={`bg-white/60 border border-[0.5px] text-zinc-700 text-sm rounded-lg block w-full px-3 py-2 dark:bg-zinc-950/40 dark:placeholder-zinc-500 dark:text-zinc-100
               outline-none transition shadow-sm
-              ${
-                formState.validationErrors.subject
-                  ? 'border-red-500 ring-2 ring-red-200 dark:ring-red-900'
-                  : 'border-zinc-300 focus:ring-2 focus:ring-sky-300 dark:border-zinc-700 dark:focus:ring-sky-700'
+              ${formState.validationErrors.subject
+                ? 'border-red-500 ring-1 ring-red-200 dark:ring-red-900'
+                : 'border-zinc-200 focus:ring-1 focus:ring-zinc-300 focus:border-zinc-300 dark:border-zinc-800 dark:focus:ring-zinc-700 dark:focus:border-zinc-700'
               }`}
-            placeholder='¿En que puedo ayudarte?'
+            placeholder='¿En qué puedo ayudarte?'
           />
           {formState.validationErrors.subject && (
             <p
               id='subject-error'
-              className='mt-1 text-sm text-red-600 flex items-start gap-1'
+              className='mt-1 text-xs text-red-500 dark:text-red-400 flex items-start gap-1'
             >
               <svg
-                className='w-4 h-4 mt-0.5 shrink-0'
+                className='w-3.5 h-3.5 mt-0.5 shrink-0'
                 viewBox='0 0 20 20'
                 fill='currentColor'
                 aria-hidden='true'
@@ -234,7 +231,7 @@ export default function ContactForm() {
         <div className='sm:col-span-2'>
           <label
             htmlFor='message'
-            className='flex items-center gap-2 mb-1 text-sm font-medium text-zinc-700 dark:text-zinc-300'
+            className='flex items-center gap-2 mb-1 text-sm font-normal text-zinc-600 dark:text-zinc-400'
           >
             Mensaje
             <span className='text-red-500' aria-hidden='true'>
@@ -246,26 +243,25 @@ export default function ContactForm() {
             name='message'
             value={formState.fields.message}
             onChange={handleInputChange}
-            rows={6}
+            rows={5}
             required
             aria-invalid={!!formState.validationErrors.message}
             aria-describedby='message-error'
-            className={`block w-full text-sm rounded-md px-3 py-2.5 bg-zinc-50 border text-zinc-700 dark:bg-zinc-900 dark:text-zinc-100
-              outline-none transition shadow-sm min-h-[140px]
-              ${
-                formState.validationErrors.message
-                  ? 'border-red-500 ring-2 ring-red-200 dark:ring-red-900'
-                  : 'border-zinc-300 focus:ring-2 focus:ring-sky-300 dark:border-zinc-700 dark:focus:ring-sky-700'
+            className={`block w-full text-sm rounded-lg px-3 py-2 bg-white/60 border border-[0.5px] text-zinc-700 dark:bg-zinc-950/40 dark:text-zinc-100
+              outline-none transition shadow-sm min-h-[120px]
+              ${formState.validationErrors.message
+                ? 'border-red-500 ring-1 ring-red-200 dark:ring-red-900'
+                : 'border-zinc-200 focus:ring-1 focus:ring-zinc-300 focus:border-zinc-300 dark:border-zinc-800 dark:focus:ring-zinc-700 dark:focus:border-zinc-700'
               }`}
             placeholder='Escribe tus ideas...'
           ></textarea>
           {formState.validationErrors.message && (
             <p
               id='message-error'
-              className='mt-1 text-sm text-red-600 flex items-start gap-1'
+              className='mt-1 text-xs text-red-500 dark:text-red-400 flex items-start gap-1'
             >
               <svg
-                className='w-4 h-4 mt-0.5 shrink-0'
+                className='w-3.5 h-3.5 mt-0.5 shrink-0'
                 viewBox='0 0 20 20'
                 fill='currentColor'
                 aria-hidden='true'
@@ -282,17 +278,17 @@ export default function ContactForm() {
         </div>
 
         <div className='flex items-center justify-between pt-2'>
-          <p className='text-xs text-zinc-500 dark:text-zinc-400'>
+          <p className='text-[10px] text-zinc-400 dark:text-zinc-500'>
             <span className='text-red-500'>*</span> Campos obligatorios
           </p>
           <button
             type='submit'
             disabled={submitting}
-            className={`inline-flex items-center gap-2 text-white bg-zinc-800 hover:bg-zinc-700 font-medium rounded-md text-sm px-5 py-2.5 mb-2 disabled:opacity-60 disabled:cursor-not-allowed dark:bg-zinc-700 dark:hover:bg-zinc-600`}
+            className='inline-flex items-center gap-1.5 text-zinc-100 bg-zinc-900 hover:bg-zinc-800 dark:text-zinc-900 dark:bg-zinc-100 dark:hover:bg-zinc-200 font-normal rounded-lg text-xs px-4 py-2 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-150 shadow-sm'
           >
             {submitting && (
               <svg
-                className='w-4 h-4 animate-spin'
+                className='w-3.5 h-3.5 animate-spin'
                 viewBox='0 0 24 24'
                 fill='none'
                 aria-hidden='true'

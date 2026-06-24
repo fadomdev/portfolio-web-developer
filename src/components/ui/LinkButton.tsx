@@ -10,7 +10,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children, ...props }) => {
     <a
       target={props?.target || '_blank'}
       href={props?.href || '#'}
-      className='border border-zinc-300 dark:border-zinc-600 text-zinc-600 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:text-zinc-100 hover:text-zinc-700  dark:text-zinc-100  dark:hover:bg-zinc-600 font-medium rounded-full text-sm md:text-md px-4 py-1 mb-2'
+      className='inline-flex items-center gap-1.5 border border-[0.5px] border-zinc-200 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-950/40 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-50 font-normal rounded-lg text-xs px-3.5 py-1.5 transition-all duration-150 shadow-sm'
       {...props}
     >
       {children}

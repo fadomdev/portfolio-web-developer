@@ -9,6 +9,7 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://fadom.dev',
   output: 'server',
   integrations: [tailwind(), react(), icon()],
   adapter: vercel({

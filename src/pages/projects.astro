@@ -5,7 +5,10 @@ import MainProjects from '../components/Projects.astro'
 import SmallProjects from '../components/SmallProjects.astro'
 ---
 
-<Layout title='Proyectos - Francisco Aquino Domínguez'>
+<Layout
+  title='Proyectos de Desarrollo Web | Francisco Aquino Domínguez'
+  description='Explora el catálogo de proyectos y experimentos de desarrollo web de Francisco Aquino. Soluciones modernas con rendimiento optimizado y accesibilidad.'
+>
   <Header />
   <main class='flex flex-col w-full max-w-[860px] mx-auto px-4 py-10'>
     <!-- Hero -->
@@ -22,6 +25,25 @@ import SmallProjects from '../components/SmallProjects.astro'
         aprendí construyéndolo.
       </p>
     </div>
+
+    <!-- Filosofía de Desarrollo y Estándares de Ingeniería -->
+    <section class='mb-12 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed max-w-3xl bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/50 dark:border-zinc-800/50 p-6 rounded-2xl'>
+      <h2 class='text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-3'>
+        Filosofía de Desarrollo y Estándares de Ingeniería
+      </h2>
+      <p class='mb-4'>
+        Mi enfoque hacia la ingeniería de software se centra en la construcción de productos digitales que combinan un rendimiento excepcional, una interfaz de usuario pulida y una arquitectura sólida. Cada línea de código que escribo sigue principios de diseño limpio, asegurando que las aplicaciones sean escalables y fáciles de mantener a largo plazo por cualquier equipo de desarrollo.
+      </p>
+      <p class='mb-4'>
+        En el ámbito del frontend, considero el rendimiento web como una característica crítica de la experiencia del usuario y del SEO. Por ello, optimizo minuciosamente las imágenes, utilizo técnicas avanzadas de carga diferida y minimizo el tamaño de los bundles. Asimismo, mantengo un fuerte compromiso con la accesibilidad web (WCAG), diseñando experiencias inclusivas y navegables mediante teclado y lectores de pantalla.
+      </p>
+      <p class='mb-4'>
+        Para la capa de backend, me enfoco en crear arquitecturas robustas y APIs rápidas y seguras. Implemento validaciones rigurosas de datos, optimizo consultas a bases de datos relacionales y no relacionales, y diseño flujos de integración y despliegue continuo (CI/CD) que automatizan las pruebas unitarias y de integración para garantizar entregas sin fricción.
+      </p>
+      <p>
+        Abajo se muestra una recopilación de mis trabajos más significativos y pequeños proyectos personales. Cada uno de ellos ha sido desarrollado para solucionar problemas de la vida real, experimentar con nuevas tecnologías o profundizar mi entendimiento sobre el diseño de sistemas distribuidos y patrones de diseño modernos.
+      </p>
+    </section>
 
     <!-- Proyectos Principales -->
     <section class='mb-16'>

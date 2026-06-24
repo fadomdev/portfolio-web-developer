@@ -21,159 +21,71 @@ const {
     isLast = false,
 } = Astro.props;
 
-// Role badge style — full static strings so Tailwind doesn't purge them
-const roleStyle: Record<string, string> = {
-    "Full Stack Developer":
-        "bg-bismark-50 text-bismark-700 border-bismark-200 dark:bg-bismark-900/30 dark:text-bismark-300 dark:border-bismark-700/40",
-    "Mobile Developer":
-        "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-900/30 dark:text-sky-300 dark:border-sky-700/40",
-    "Full Stack & Mobile Developer":
-        "bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-900/30 dark:text-violet-300 dark:border-violet-700/40",
-};
-
-const badgeClass =
-    roleStyle[role] ??
-    "bg-zinc-100 text-zinc-600 border-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:border-zinc-700";
-
 const descArray = typeof description === "string" ? [description] : description;
 ---
 
-<li class="work-item relative pl-8 pb-8" style={`--i:${index}`}>
+<li class="work-item relative pl-8 pb-10" style={`--i: ${index}`}>
     <!-- Timeline dot -->
     <span
-        class="timeline-dot absolute left-[-7px] top-[1.4rem] flex items-center justify-center w-3.5 h-3.5 rounded-full bg-white dark:bg-zinc-950 border-2 border-bismark-400 dark:border-bismark-500 z-10"
+        class="timeline-dot absolute left-[-4px] top-[7px] w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700 transition-all duration-300 z-10"
     >
-        <span
-            class="dot-inner w-[5px] h-[5px] rounded-full bg-bismark-400 dark:bg-bismark-500"
-        ></span>
     </span>
 
-    <!-- Card -->
-    <article
-        class="work-card group rounded-xl border border-zinc-200 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 overflow-hidden"
-    >
-        <!-- Accent top bar -->
-        <div
-            class="card-bar h-[3px] w-full bg-gradient-to-r from-bismark-400/60 via-bismark-300/40 to-transparent dark:from-bismark-600/60 dark:via-bismark-700/40"
-        >
-        </div>
-
-        <div class="p-5">
-            <!-- Header row: role badge + date -->
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span
-                    class={`inline-flex items-center gap-1.5 px-2.5 py-[3px] text-[10px] font-bold uppercase tracking-widest rounded-full border ${badgeClass}`}
-                >
-                    <!-- Role icon dot -->
-                    <span class="w-1.5 h-1.5 rounded-full bg-current opacity-70"
-                    ></span>
+    <!-- Content -->
+    <div class="work-content">
+        <!-- Header: Role / Title / Date -->
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2">
+            <div class="flex flex-wrap items-baseline gap-x-2">
+                <h3 class="text-[15px] font-normal text-zinc-900 dark:text-zinc-50 leading-snug">
+                    {title}
+                </h3>
+                <span class="text-xs text-zinc-400 dark:text-zinc-500 font-light hidden sm:inline">/</span>
+                <span class="text-xs text-zinc-500 dark:text-zinc-400 font-normal">
                     {role}
                 </span>
-
-                <time
-                    class="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-800/60 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-700/50 tabular-nums"
-                >
-                    {date}
-                </time>
             </div>
-
-            <!-- Title -->
-            <h3
-                class="text-[15px] font-bold text-zinc-800 dark:text-zinc-100 leading-snug mb-3 pr-2"
-            >
-                {title}
-            </h3>
-
-            <!-- Description -->
-            <div class="mb-4 space-y-1.5">
-                {
-                    descArray.map((d) => (
-                        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            {d}
-                        </p>
-                    ))
-                }
-            </div>
-
-            <!-- Divider -->
-            <div class="border-t border-zinc-100 dark:border-zinc-800 mb-3">
-            </div>
-
-            <!-- Skills -->
-            <div class="flex flex-wrap gap-1">
-                {skills.map((skill) => <Skill title={skill} />)}
-            </div>
+            <time class="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
+                {date}
+            </time>
         </div>
-    </article>
+
+        <!-- Description -->
+        <div class="space-y-2 mb-3 max-w-2xl">
+            {
+                descArray.map((d) => (
+                    <p class="text-[13px] text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+                        {d}
+                    </p>
+                ))
+            }
+        </div>
+
+        <!-- Skills -->
+        <div class="flex flex-wrap gap-1.5">
+            {skills.map((skill) => <Skill title={skill} />)}
+        </div>
+    </div>
 </li>
 
 <style>
-    /* ── Initial hidden state ─────────────────────────────────────────── */
+    /* ── Initial state for scroll animation ───────────────────────────── */
     .work-item {
         opacity: 0;
-        transform: translateX(-14px);
+        transform: translateY(8px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: calc(var(--i) * 60ms);
     }
 
-    /* ── Animate in ───────────────────────────────────────────────────── */
+    /* ── Visible state ────────────────────────────────────────────────── */
     .work-item.is-visible {
-        animation: workIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-        animation-delay: calc(var(--i) * 90ms);
-    }
-
-    /* ── Card hover ───────────────────────────────────────────────────── */
-    .work-card {
-        transition:
-            box-shadow 0.3s ease,
-            border-color 0.3s ease,
-            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .work-item.is-visible .work-card:hover {
-        box-shadow:
-            0 8px 28px -6px rgba(0, 0, 0, 0.12),
-            0 2px 8px -2px rgba(67, 142, 150, 0.12);
-        border-color: rgba(67, 142, 150, 0.35);
-        transform: translateX(4px);
-    }
-
-    /* ── Accent bar expand on hover ───────────────────────────────────── */
-    .card-bar {
-        transition: opacity 0.3s ease;
-        opacity: 0.6;
-    }
-    .work-card:hover .card-bar {
         opacity: 1;
+        transform: translateY(0);
     }
 
-    /* ── Timeline dot glow on hover ───────────────────────────────────── */
-    .timeline-dot {
-        transition:
-            box-shadow 0.3s ease,
-            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
+    /* ── Subtle interactions ───────────────────────────────────────────── */
     .work-item:hover .timeline-dot {
-        box-shadow: 0 0 0 5px rgba(67, 142, 150, 0.15);
-        transform: scale(1.25);
-    }
-
-    .dot-inner {
-        transition: transform 0.3s ease;
-    }
-    .work-item:hover .dot-inner {
-        transform: scale(1.4);
-    }
-
-    /* ── Entrance keyframe ────────────────────────────────────────────── */
-    @keyframes workIn {
-        from {
-            opacity: 0;
-            transform: translateX(-14px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        background-color: #438e96; /* bismark-500 */
+        box-shadow: 0 0 0 4px rgba(67, 142, 150, 0.15);
     }
 </style>
 
@@ -190,7 +102,7 @@ const descArray = typeof description === "string" ? [description] : description;
                 }
             });
         },
-        { threshold: 0.15, rootMargin: "0px 0px -30px 0px" },
+        { threshold: 0.1, rootMargin: "0px 0px -20px 0px" },
     );
 
     items.forEach((item) => observer.observe(item));

@@ -1,50 +1,44 @@
 ---
-import DarkMode from './DarkMode'
+import DarkMode from "./DarkMode";
 ---
 
 <header
-  class='h-14 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 border-b border-zinc-200/70 dark:border-zinc-800/70'
+  class="h-14 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 border-b-[0.5px] border-zinc-200/50 dark:border-zinc-800/50"
 >
   <div
-    class='flex h-full items-center justify-between max-w-[860px] mx-auto px-4 sm:px-6'
+    class="flex h-full items-center justify-between max-w-[860px] mx-auto px-4 sm:px-6"
   >
     <!-- Logo -->
-    <a href='/' class='flex items-center gap-2 group'>
+    <a href="/" class="flex items-center gap-2 group">
       <div
-        class='w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center transition-transform group-hover:scale-105'
+        class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center transition-transform group-hover:scale-105"
       >
         <span
-          class='text-white dark:text-zinc-900 font-bold text-sm leading-none'
+          class="text-white dark:text-zinc-900 font-medium text-sm leading-none"
           >F</span
         >
       </div>
       <span
-        class='font-semibold text-sm text-zinc-800 dark:text-zinc-100 hidden sm:inline'
+        class="font-medium text-sm text-zinc-800 dark:text-zinc-100 hidden sm:inline"
         >fadom.dev</span
       >
     </a>
 
     <!-- Nav + Dark mode -->
-    <div class='flex items-center gap-1'>
-      <nav class='flex items-center gap-2 mr-2'>
+    <div class="flex items-center gap-1">
+      <nav class="flex items-center gap-1 mr-1">
         <a
-          href='/'
-          data-navlink='/'
-          class='nav-link px-3 py-1.5 text-sm rounded-lg transition-colors duration-150 text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+          href="/"
+          data-navlink="/"
+          class="nav-link px-3 py-1.5 text-xs rounded-lg transition-colors duration-155 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-900"
         >
           Inicio
         </a>
+
         <a
-          href='/projects'
-          data-navlink='/projects'
-          class='nav-link px-3 py-1.5 text-sm rounded-lg transition-colors duration-150 text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-        >
-          Proyectos
-        </a>
-        <a
-          href='/#contact'
-          data-navlink='/#contact'
-          class='nav-link px-3 py-1.5 text-sm rounded-lg transition-colors duration-150 text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+          href="/#contact"
+          data-navlink="/#contact"
+          class="nav-link px-3 py-1.5 text-xs rounded-lg transition-colors duration-155 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-900"
         >
           Contacto
         </a>
@@ -56,33 +50,33 @@ import DarkMode from './DarkMode'
 
 <script>
   function updateActiveNav() {
-    const path = window.location.pathname
-    const hash = window.location.hash
+    const path = window.location.pathname;
+    const hash = window.location.hash;
 
     document
-      .querySelectorAll<HTMLAnchorElement>('[data-navlink]')
+      .querySelectorAll<HTMLAnchorElement>("[data-navlink]")
       .forEach((link) => {
-        const linkPath = link.getAttribute('data-navlink')!
-        let isActive = false
+        const linkPath = link.getAttribute("data-navlink")!;
+        let isActive = false;
 
-        if (linkPath === '/#contact') {
-          isActive = hash === '#contact'
-        } else if (linkPath === '/') {
-          isActive = path === '/' && hash !== '#contact'
+        if (linkPath === "/#contact") {
+          isActive = hash === "#contact";
+        } else if (linkPath === "/") {
+          isActive = path === "/" && hash !== "#contact";
         } else {
-          isActive = path.startsWith(linkPath)
+          isActive = path.startsWith(linkPath);
         }
 
         if (isActive) {
-          link.classList.add('font-medium', 'text-zinc-900', 'bg-zinc-100')
-          link.classList.remove('text-zinc-500')
+          link.classList.add("font-medium", "text-zinc-950", "dark:text-zinc-50", "bg-zinc-100", "dark:bg-zinc-900");
+          link.classList.remove("text-zinc-500", "dark:text-zinc-400");
         } else {
-          link.classList.remove('font-medium', 'text-zinc-900', 'bg-zinc-100')
-          link.classList.add('text-zinc-500')
+          link.classList.remove("font-medium", "text-zinc-950", "dark:text-zinc-50", "bg-zinc-100", "dark:bg-zinc-900");
+          link.classList.add("text-zinc-500", "dark:text-zinc-400");
         }
-      })
+      });
   }
 
-  updateActiveNav()
-  window.addEventListener('hashchange', updateActiveNav)
+  updateActiveNav();
+  window.addEventListener("hashchange", updateActiveNav);
 </script>

@@ -13,7 +13,7 @@ import ProfileType from './ProfileType'
 <div class='flex-col'>
   <div class='py-8'>
     <picture
-      class='flex h-32 w-32 rounded-full overflow-hidden border-2 border-zinc-50 animate-fade-down'
+      class='flex h-32 w-32 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800/80 shadow-sm'
     >
       <source srcset='/assets/profile2.jpeg' type='image/svg+xml' />
       <figure>
@@ -26,17 +26,17 @@ import ProfileType from './ProfileType'
     </picture>
   </div>
 
-  <div class='flex flex-col md:flex-row gap-2 md:gap-4 pb-5'>
+  <div class='flex flex-wrap gap-2 pb-5'>
     <LinkButton href='https://github.com/fadomdev' target='_blank'>
-      <BiLogoGithub size={24} className='inline' />
+      <BiLogoGithub size={16} className='inline' />
       GitHub</LinkButton
     >
     <LinkButton href='https://www.linkedin.com/in/fadom/' target='_blank'>
-      <BiLogoLinkedinSquare size={24} className='inline' />
+      <BiLogoLinkedinSquare size={16} className='inline' />
       LinkedIn</LinkButton
     >
     <LinkButton href='/resume.pdf' target='_blank'>
-      <BiDownload size={24} className='inline' />
+      <BiDownload size={16} className='inline' />
       Descargar CV</LinkButton
     >
   </div>
@@ -47,11 +47,11 @@ import ProfileType from './ProfileType'
 <!-- Yo -->
 <div class='flex flex-col'>
   <div class='flex flex-col'>
-    <h2 class='font-normal text-xl text-zinc-700 dark:text-zinc-50 mb-2'>
+    <h2 class='font-medium text-lg text-zinc-800 dark:text-zinc-100 mb-2'>
       Full Stack Web Developer
     </h2>
 
-    <p class='text-zinc-700 dark:text-zinc-50'>
+    <p class='text-zinc-600 dark:text-zinc-400 text-[14px] leading-relaxed font-normal'>
       Desarrollador Full-Stack con más de 10 años de experiencia en el diseño y
       desarrollo de aplicaciones web. Especializado en PHP (Laravel), JavaScript
       (React) y MySQL, con experiencia en proyectos para sectores educativos y
@@ -61,14 +61,14 @@ import ProfileType from './ProfileType'
     </p>
   </div>
   <div
-    class='flex flex-col md:flex-row gap-2 md:gap-4 text-center items-center py-5'
+    class='flex flex-wrap gap-2 py-5'
   >
     <LinkButton href='mailto:franciscoaquino19@gmail.com' target='_blank'>
-      <BiMailSend size={24} className='inline' />
+      <BiMailSend size={16} className='inline' />
       franciscoaquino19@gmail.com</LinkButton
     >
     <LinkButton href='tel:+56 9 90479050' target='_blank'>
-      <BiPhone size={24} className='inline' />
+      <BiPhone size={16} className='inline' />
       +56 9 90479050</LinkButton
     >
   </div>
